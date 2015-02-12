@@ -5,9 +5,11 @@ window.onload = function () {
     var button = document.createElement("button");
     button.appendChild(document.createTextNode("Reply"));
     button.style.float = "right";
-    button.style.marginTop = "-35px";
+    button.style.margin = "5px";
+    button.style.marginTop = "-40px";
     button.className = "button";
-    button.dataset.quote = comments[i].querySelector(".comment-body p").textContent;
+    var commentBody = comments[i].querySelector(".comment-body p") || comments[i].querySelector(".comment .comment-form-textarea");
+    button.dataset.quote = commentBody.textContent;
     button.onclick = function () {
       var quote = "> " + this.dataset.quote;
       var newCommentField = document.querySelector("#new_comment_field"); 
